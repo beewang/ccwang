@@ -1,10 +1,13 @@
 {
-  "main.css": "static/css/main.e235dfd1.css",
-  "main.css.map": "static/css/main.e235dfd1.css.map",
-  "main.js": "static/js/main.58039f55.js",
-  "main.js.map": "static/js/main.58039f55.js.map",
+  "main.css": "static/css/main.50f5eb4e.css",
+  "main.css.map": "static/css/main.50f5eb4e.css.map",
+  "main.js": "static/js/main.29b7e6c1.js",
+  "main.js.map": "static/js/main.29b7e6c1.js.map",
   "static/media/background-1.jpeg": "static/media/background-1.0bda1694.jpeg",
   "static/media/background-2.jpg": "static/media/background-2.1a0027fd.jpg",
   "static/media/background-3.jpg": "static/media/background-3.746b75d5.jpg",
-  "static/media/background-4.jpg": "static/media/background-4.b2e65f1b.jpg"
+  "static/media/background-4.jpg": "static/media/background-4.b2e65f1b.jpg",
+  "static/media/candle.jpg": "static/media/candle.50d4f50a.jpg",
+  "static/media/home.jpg": "static/media/home.e3b19400.jpg",
+  "static/media/rose.jpg": "static/media/rose.a7d088be.jpg"
 }
