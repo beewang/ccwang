@@ -1,6 +1,6 @@
 {
   "name": "ccwang",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
     "start:dev": "node tools/run.js",
     "eslint": "eslint src test tools postcss.config.js webpack.config.js",
