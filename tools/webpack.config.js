@@ -29,13 +29,6 @@ const config = {
     sourcePrefix: '  ',
   },
 
-  resolve: {
-    alias: {
-      components: path.resolve(__dirname, '../src/components/'),
-      theme: path.resolve(__dirname, '../src/styles/theme.js'),
-    },
-  },
-
   // Developer tool to enhance debugging, source maps
   // http://webpack.github.io/docs/configuration.html#devtool
   devtool: isDebug ? 'source-map' : false,
@@ -58,7 +51,10 @@ const config = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: isDebug ? '"development"' : '"production"',
-        API: process.env.API || '"http://localhost:3000"',
+        ROAD_SO_FAR_API: process.env.ROAD_SO_FAR_API || '"http://localhost:8090"',
+        AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID || '"vwqeSmdGge6jdXzDwTnTQE3K7KOS3n0H"',
+        AUTH0_DOMAIN: process.env.AUTH0_DOMAIN || '"makkke.auth0.com"',
+        AUTH0_REDIRECT_URI: process.env.AUTH0_REDIRECT_URI || '"http://localhost:8080/login"',
       },
       __DEV__: isDebug,
     }),
@@ -79,14 +75,19 @@ const config = {
     rules: [
       {
         test: /\.jsx?$/,
-        include: path.resolve(__dirname, '../src'),
+        include: [
+          path.resolve(__dirname, '../src'),
+          path.resolve(__dirname, '../components'),
+        ],
         loader: 'babel-loader',
         options: babelConfig,
       },
       {
         test: /\.css/,
         use: [
-          { loader: 'style-loader' },
+          {
+            loader: 'style-loader',
+          },
           {
             loader: 'css-loader',
             options: {
@@ -102,15 +103,13 @@ const config = {
           {
             loader: 'postcss-loader',
             options: {
-              config: {
-                path: './tools/postcss.config.js',
-              },
+              config: './tools/postcss.config.js',
             },
           },
         ],
       },
       {
-        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|webp)$/,
+        test: /\.(png|jpg|jpeg|gif|svg|woff|woff2)$/,
         loader: 'url-loader',
         options: {
           limit: 10000,

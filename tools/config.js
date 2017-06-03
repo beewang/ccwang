@@ -1,4 +1,4 @@
 module.exports = {
-  title: 'react redux starter',
-  url: '',
+  title: 'CC Wang',        // Your website title
+  url: 'https://ccwang.com',          // Your website URL
 }

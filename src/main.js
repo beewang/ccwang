@@ -12,7 +12,9 @@ import { configureStore } from './store'
 // https://github.com/ftlabs/fastclick
 FastClick.attach(document.body)
 
-injectTapEventPlugin() // remove on official React version
+// Needed for onTouchTap
+// http://stackoverflow.com/a/34015469/988941
+injectTapEventPlugin()
 
 const store = configureStore()
 const mount = document.getElementById('root')

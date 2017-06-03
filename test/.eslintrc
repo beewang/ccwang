@@ -6,8 +6,5 @@
     "no-console": 0,
     "no-unused-expressions": 0,
     "padded-blocks": 0
-  },
-  "settings": {
-    "import/resolver": "webpack"
   }
 }

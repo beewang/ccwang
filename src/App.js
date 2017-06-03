@@ -1,33 +1,31 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { Provider } from 'react-redux'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
-import { Provider } from 'react-redux'
+import Helmet from 'react-helmet'
 
+// Import Routes
 import Routes from './routes'
 
-// Base stylesheets
-import './normalize.css'
-import './app.css'
+// Base stylesheet
+require('./app.css')
 
 // Setup Apollo client
 const createClient = () => (
   new ApolloClient({
     networkInterface: createNetworkInterface({
-      uri: `${process.env.API}/graphql`,
+      uri: `${process.env.MYSURREY_API}/graphql`,
     }),
   })
 )
 
 function App(props) {
-  // TODO: try to change order of providers for performance?
   return (
     <ApolloProvider client={createClient()}>
       <Provider store={props.store}>
         <div>
           <Helmet
-            titleTemplate="%s | React Redux Starter"
+            titleTemplate="%s | MySurrey"
             meta={[
               { charset: 'utf-8' },
               {
@@ -49,7 +47,7 @@ function App(props) {
 }
 
 App.propTypes = {
-  store: PropTypes.object.isRequired, // eslint-disable-line
+  store: React.PropTypes.object.isRequired, // eslint-disable-line
 }
 
 export default App

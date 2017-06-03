@@ -1,2 +1,1 @@
-# react-redux-starter
-React Redux Starter
+# ccwang

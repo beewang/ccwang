@@ -18,26 +18,13 @@ const styles = {
   logo: {
     margin: 'auto 0',
   },
-  input: {
-    height: 30,
-    border: 'none',
-  },
-  verticalSeparator: {
-    borderLeft: '1px solid #cecaca',
-    margin: '0 20px',
-  },
-  minimized: {
-    '@media (max-width: 600px)': {
-      display: 'none',
-    },
-  },
 }
 
 const NavBar = () => (
   <div>
     <div style={styles.root}>
       <div style={styles.column}>
-        <div style={styles.logo}>React Redux Starter</div>
+        <div style={styles.logo}>CC Wang</div>
       </div>
       <div style={styles.column}>
         <div>Welcome</div>
