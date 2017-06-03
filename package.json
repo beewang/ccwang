@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/beewang/react-redux-starter.git"
   },
-  "author": "City of Surrey",
+  "author": "Benny Wang",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/beewang/react-redux-starter/issues"

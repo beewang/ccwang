@@ -1,7 +1,7 @@
 {
   "name": "React Redux Starter",
   "short_name": "react-redux-starter",
-  "description": "Surrey services.",
+  "description": "React redux template",
   "lang": "en-US",
   "orientation": "portrait-primary",
   "start_url": ".",

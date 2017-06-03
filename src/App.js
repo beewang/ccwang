@@ -10,13 +10,12 @@ import Routes from './routes'
 // Base stylesheets
 import './normalize.css'
 import './app.css'
-import './styles/icons.css'
 
 // Setup Apollo client
 const createClient = () => (
   new ApolloClient({
     networkInterface: createNetworkInterface({
-      uri: `${process.env.MYSURREY_API}/graphql`,
+      uri: `${process.env.API}/graphql`,
     }),
   })
 )

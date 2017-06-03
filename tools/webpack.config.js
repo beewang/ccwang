@@ -58,7 +58,7 @@ const config = {
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: isDebug ? '"development"' : '"production"',
-        MYSURREY_API: process.env.MYSURREY_API || '"http://localhost:3000"',
+        API: process.env.API || '"http://localhost:3000"',
       },
       __DEV__: isDebug,
     }),
