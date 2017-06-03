@@ -1,9 +1,7 @@
-/**
- * Root Reducer
- */
 import { combineReducers } from 'redux'
 
+import app from './app/app.module'
 
-// Combine all reducers into one root reducer
 export default combineReducers({
+  app,
 })

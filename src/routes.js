@@ -1,17 +1,22 @@
-/* eslint-disable global-require */
 import React from 'react'
-import { Route } from 'react-router'
-import Portfolio from './modules/Portfolio/Portfolio'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { StyleRoot } from 'radium'
 
-// require.ensure polyfill for node
-if (typeof require.ensure !== 'function') {
-  require.ensure = function requireModule(deps, callback) {
-    callback(require)
-  }
+import NavBar from 'components/NavBar'
+
+const styles = {
+  backgroundColor: '#f7f7f7',
+  position: 'relative',
+  minHeight: '100vh',
 }
 
-// react-router setup with code-splitting
-// More info: http://blog.mxstbr.com/2016/01/react-apps-with-pages/
-export default (
-  <Route path="/" component={Portfolio} />
+
+export default () => (
+  <StyleRoot>
+    <Router>
+      <div style={styles}>
+        <NavBar />
+      </div>
+    </Router>
+  </StyleRoot>
 )
