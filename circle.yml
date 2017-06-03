@@ -1,0 +1,40 @@
+version: 2
+
+executorType: docker
+
+containerInfo:
+  - image: beewang/node
+
+stages:
+  build:
+    workDir: ~/ccwang
+    steps:
+      - type: checkout
+
+      - name: Install Node.js dependencies
+        type: shell
+        shell: /bin/bash
+        command: yarn install
+
+      - name: Lint
+        type: shell
+        shell: /bin/bash
+        command: yarn lint
+
+      - name: Test
+        type: shell
+        shell: /bin/bash
+        command: yarn test
+
+      - name: Build
+        type: shell
+        shell: /bin/bash
+        command: yarn build
+
+      - name: Deploy to production
+        type: deploy
+        shell: /bin/bash
+        command: |
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            aws s3 sync ./public s3://aws-website-ccwang-84nms/ --delete
+          fi
