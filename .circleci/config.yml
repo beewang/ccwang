@@ -12,9 +12,9 @@ jobs:
           name: Install Node.js dependencies
           command: yarn install
 
-      - run:
-          name: Lint Test
-          command: yarn run test:lint
+      # - run:
+      #     name: Lint Test
+      #     command: yarn run test:lint
 
       - run:
           name: Unit Test
@@ -28,9 +28,5 @@ jobs:
           name: Deploy to production
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              echo AUTH0_CLIENT_ID=\"$AUTH0_CLIENT_ID\" > .env
-              echo "-----BEGIN CERTIFICATE-----" > auth0.cer
-              echo $AUTH0_CLIENT_SECRET | tr " " "\n" >> auth0.cer
-              echo "-----END CERTIFICATE-----" >> auth0.cer
-              yarn run deploy:production
+              aws s3 sync public/ s3://aws-website-ccwang-84nms
             fi
