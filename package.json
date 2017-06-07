@@ -5,7 +5,7 @@
     "start": "node tools/run.js",
     "eslint": "eslint src test tools postcss.config.js webpack.config.js",
     "test:unit": "mocha --compilers js:babel-register",
-    "test:lint": "npm run eslint && npm run stylelint",
+    "test:lint": "npm run eslint",
     "build": "node tools/build.js",
     "build:debug": "node tools/build.js --debug"
   },

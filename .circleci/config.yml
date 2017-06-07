@@ -18,11 +18,11 @@ jobs:
 
       - run:
           name: Unit Test
-          command: yarn run test:unit
+          command: yarn test:unit
 
       - run:
           name: Build
-          command: yarn run build
+          command: yarn build
 
       - run:
           name: Deploy to production
