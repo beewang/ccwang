@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import Routes from './routes'
 
 // Base stylesheet
-require('./app.css')
+import './app.css'
 
 // Setup Apollo client
 const createClient = () => (
