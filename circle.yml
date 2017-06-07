@@ -3,11 +3,10 @@ version: 2
 executorType: docker
 
 containerInfo:
-  - image: beewang/node
+  - image: bennywang/node
 
 stages:
   build:
-    workDir: ~/ccwang
     steps:
       - type: checkout
 
@@ -36,5 +35,5 @@ stages:
         shell: /bin/bash
         command: |
           if [ "${CIRCLE_BRANCH}" == "master" ]; then
-            aws s3 sync ./public s3://aws-website-ccwang-84nms/ --delete
+            aws s3 sync public/ s3://aws-website-ccwang-84nms
           fi

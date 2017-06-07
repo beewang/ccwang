@@ -12,8 +12,7 @@
     "build:debug": "node tools/build.js --debug",
     "publish": "node tools/publish.js",
     "publish:debug": "node tools/publish.js --debug",
-    "deploy": "gh-pages -d public",
-    "deploys3": "npm run build && aws s3 sync -profile personal public/ s3://aws-website-ccwang-84nms"
+    "deploy": "npm run build && aws s3 sync public/ s3://aws-website-ccwang-84nms"
   },
   "dependencies": {
     "apollo-client": "^0.8.7",
