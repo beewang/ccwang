@@ -18,12 +18,12 @@ stages:
       - name: Lint
         type: shell
         shell: /bin/bash
-        command: yarn lint
+        command: yarn test:lint
 
       - name: Test
         type: shell
         shell: /bin/bash
-        command: yarn test
+        command: yarn test:unit
 
       - name: Build
         type: shell
