@@ -1,19 +1,13 @@
 {
   "name": "ccwang",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "scripts": {
-    "start:dev": "node tools/run.js",
+    "start": "node tools/run.js",
     "eslint": "eslint src test tools postcss.config.js webpack.config.js",
-    "stylelint": "stylelint \"components/**/*.css\" \"src/**/*.css\"",
-    "lint": "npm run eslint && npm run stylelint",
-    "test": "mocha --compilers js:babel-register",
-    "test:watch": "mocha --compilers js:babel-register --reporter min --watch",
+    "test:unit": "mocha --compilers js:babel-register",
+    "test:lint": "npm run eslint && npm run stylelint",
     "build": "node tools/build.js",
-    "build:debug": "node tools/build.js --debug",
-    "publish": "node tools/publish.js",
-    "publish:debug": "node tools/publish.js --debug",
-    "deploy": "gh-pages -d public",
-    "deploys3": "npm run build && aws s3 sync -profile personal public/ s3://aws-website-ccwang-84nms"
+    "build:debug": "node tools/build.js --debug"
   },
   "dependencies": {
     "apollo-client": "^0.8.7",
