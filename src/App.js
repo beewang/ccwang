@@ -19,8 +19,6 @@ const createClient = () => (
   })
 )
 
-console.log('process.env.CCWANG_API', process.env.CCWANG_API)
-
 function App(props) {
   return (
     <ApolloProvider client={createClient()}>
