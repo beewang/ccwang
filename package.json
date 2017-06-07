@@ -7,7 +7,7 @@
     "test:unit": "mocha --compilers js:babel-register",
     "test:lint": "npm run eslint && npm run stylelint",
     "build": "node tools/build.js",
-    "build:debug": "node tools/build.js --debug",
+    "build:debug": "node tools/build.js --debug"
   },
   "dependencies": {
     "apollo-client": "^0.8.7",
