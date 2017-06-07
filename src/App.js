@@ -14,10 +14,12 @@ require('./app.css')
 const createClient = () => (
   new ApolloClient({
     networkInterface: createNetworkInterface({
-      uri: `${process.env.MYSURREY_API}/graphql`,
+      uri: `${process.env.CCWANG_API}/graphql`,
     }),
   })
 )
+
+console.log('process.env.CCWANG_API', process.env.CCWANG_API)
 
 function App(props) {
   return (
