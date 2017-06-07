@@ -14,11 +14,11 @@ stages:
         type: shell
         shell: /bin/bash
         command: yarn install
-
-      - name: Lint
-        type: shell
-        shell: /bin/bash
-        command: yarn test:lint
+      # 
+      # - name: Lint
+      #   type: shell
+      #   shell: /bin/bash
+      #   command: yarn test:lint
 
       - name: Test
         type: shell
