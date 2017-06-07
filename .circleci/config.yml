@@ -28,5 +28,5 @@ jobs:
           name: Deploy to production
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              aws s3 sync public/ s3://app.ccwang.com
+              aws s3 sync public/ s3://app.ccwang.com --delete
             fi
