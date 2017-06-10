@@ -23,6 +23,7 @@
     "material-ui-places": "^1.0.3",
     "moment": "^2.17.1",
     "npm": "^4.2.0",
+    "prop-types": "^15.5.10",
     "radium": "^0.19.1",
     "react": "^15.4.2",
     "react-apollo": "^0.11.1",
@@ -36,6 +37,8 @@
     "react-router-dom": "^4.1.1",
     "react-tap-event-plugin": "^2.0.1",
     "redux": "^3.6.0",
+    "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "whatwg-fetch": "^2.0.2"
   },

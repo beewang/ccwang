@@ -3,12 +3,17 @@ import { Provider } from 'react-redux'
 import ApolloClient, { createNetworkInterface } from 'apollo-client'
 import { ApolloProvider } from 'react-apollo'
 import Helmet from 'react-helmet'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 
 // Import Routes
 import Routes from './routes'
+import { configureStore } from './store'
 
 // Base stylesheet
 import './app.css'
+
+// setup redux store
+const store = configureStore()
 
 // Setup Apollo client
 const createClient = () => (
@@ -19,30 +24,32 @@ const createClient = () => (
   })
 )
 
-function App(props) {
+function App() {
   return (
-    <ApolloProvider client={createClient()}>
-      <Provider store={props.store}>
-        <div>
-          <Helmet
-            titleTemplate="%s | MySurrey"
-            meta={[
-              { charset: 'utf-8' },
-              {
-                'http-equiv': 'X-UA-Compatible',
-                content: 'IE=edge',
-              },
-              {
-                name: 'viewport',
-                content: 'width=device-width, initial-scale=1',
-              },
-            ]}
-          />
+    <MuiThemeProvider>
+      <ApolloProvider client={createClient()}>
+        <Provider store={store}>
+          <div>
+            <Helmet
+              titleTemplate="%s | CCWang"
+              meta={[
+                { charset: 'utf-8' },
+                {
+                  'http-equiv': 'X-UA-Compatible',
+                  content: 'IE=edge',
+                },
+                {
+                  name: 'viewport',
+                  content: 'width=device-width, initial-scale=1',
+                },
+              ]}
+            />
 
-          <Routes />
-        </div>
-      </Provider>
-    </ApolloProvider>
+            <Routes />
+          </div>
+        </Provider>
+      </ApolloProvider>
+    </MuiThemeProvider>
   )
 }
 

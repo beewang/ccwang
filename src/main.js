@@ -5,7 +5,6 @@ import FastClick from 'fastclick'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
 import App from './App'
-import { configureStore } from './store'
 
 // Eliminates the 300ms delay between a physical tap
 // and the firing of a click event on mobile browsers
@@ -16,12 +15,11 @@ FastClick.attach(document.body)
 // http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin()
 
-const store = configureStore()
 const mount = document.getElementById('root')
 
 render(
   <AppContainer>
-    <App store={store} />
+    <App />
   </AppContainer>,
   mount,
 )
