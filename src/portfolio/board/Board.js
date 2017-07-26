@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 
 import Post from './Post'
 import AddPost from './AddPost'
-import { load } from './board.module'
+import { load, create } from './board.module'
 
 const styles = {
   root: {
@@ -29,6 +29,10 @@ class Board extends React.Component {
     title: '',
   }
 
+  componentDidMount() {
+    this.props.loadPosts()
+  }
+
   handleInputChange = (event) => {
     const { errors } = this.state
     const value = event.target.value.trim()
@@ -39,12 +43,18 @@ class Board extends React.Component {
   }
 
   handleCreateButtonClick = () => {
-    this.props.createPost({ ...this.state })
+    const { email, name, title, content } = this.state
+    this.props.createPost({
+      email,
+      name,
+      title,
+      content,
+    })
   }
 
   render() {
     const { formOpen } = this.state
-    const { posts = [] } = this.props.data
+    const posts = this.props.posts || []
 
     return (
       <div style={styles.root}>
@@ -80,72 +90,71 @@ class Board extends React.Component {
 }
 
 Board.propTypes = {
-  createPost: PropTypes.func.isRequired,
-  data: PropTypes.shape({
-    posts: PropTypes.array,
-  }).isRequired,
+  posts: PropTypes.array, // eslint-disable-line
+  loadPosts: PropTypes.func,
+  createPost: PropTypes.func,
 }
 
 /* -----------------------------------------
   Graphql
  ------------------------------------------*/
-
-const getPosts = gql`
-  query {
-    posts {
-      id
-      name
-      email
-      title
-      content
-      reply
-      createdAt
-      updatedAt
-    }
-  }
-`
-
-const createPost = gql`
-  mutation createPost($input: PostInput!) {
-    createPost(input: $input) {
-      post {
-        id
-      },
-      error
-    }
-  }
-`
-const QueryAllPosts = graphql(getPosts)
-
-const CreatePostWithData = graphql(createPost, {
-  props: ({ mutate }) => ({
-    createPost: (post) => {
-      const input = {
-        title: post.title,
-        name: post.name,
-        content: post.content,
-        email: post.email,
-      }
-
-      return mutate({ variables: { input } })
-    },
-  }),
-})
-
-const graphqlBoard = compose(QueryAllPosts, CreatePostWithData)(Board)
+//
+// const getPosts = gql`
+//   query {
+//     posts {
+//       id
+//       name
+//       email
+//       title
+//       content
+//       reply
+//       createdAt
+//       updatedAt
+//     }
+//   }
+// `
+//
+// const createPost = gql`
+//   mutation createPost($input: PostInput!) {
+//     createPost(input: $input) {
+//       post {
+//         id
+//       },
+//       error
+//     }
+//   }
+// `
+// const QueryAllPosts = graphql(getPosts)
+//
+// const CreatePostWithData = graphql(createPost, {
+//   props: ({ mutate }) => ({
+//     createPost: (post) => {
+//       const input = {
+//         title: post.title,
+//         name: post.name,
+//         content: post.content,
+//         email: post.email,
+//       }
+//
+//       return mutate({ variables: { input } })
+//     },
+//   }),
+// })
+//
+// const graphqlBoard = compose(QueryAllPosts, CreatePostWithData)(Board)
 
 /* -----------------------------------------
   Redux
  ------------------------------------------*/
-const mapStateToProps = state => ({
-  posts: state.posts,
-})
+const mapStateToProps = state => ({ posts: state.board.posts })
 
 const mapDispatchToProps = dispatch => ({
-  loadPosts(posts) {
-    dispatch(load(posts))
+  loadPosts() {
+    dispatch(load())
+  },
+  createPost(post) {
+    dispatch(create(post))
   },
 })
 
-// export default connect(mapStateToProps, mapDispatchToProps)(graphqlBoard)
-export default graphqlBoard
+export default connect(mapStateToProps, mapDispatchToProps)(Board)

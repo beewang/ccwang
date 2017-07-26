@@ -2,30 +2,22 @@ import React from 'react'
 import Radium from 'radium'
 import { Route } from 'react-router-dom'
 
-import NavBar from '../components/NavBar'
+// import NavBar from '../components/NavBar'
 import Board from './board'
+import Main from './main'
 
 const styles = {
-  root: {
-    backgroundColor: '#f7f7f7',
-    position: 'relative',
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-  },
+  root: { },
 }
-
+// <NavBar />
 class Portfolio extends React.Component {
   state = {}
 
   render() {
     return (
       <div style={styles.root}>
-        <NavBar />
-        <Route
-          path="/board"
-          render={() => <Board {...this.props} />}
-        />
+        <Route exact path="/" render={() => <Main {...this.props} />} />
+        <Route path="/board" render={() => <Board {...this.props} />} />
       </div>
     )
   }

@@ -15,19 +15,16 @@ import './app.css'
 // setup redux store
 const store = configureStore()
 
-// Setup Apollo client
-const createClient = () => (
-  new ApolloClient({
-    networkInterface: createNetworkInterface({
-      uri: `${process.env.CCWANG_API}/graphql`,
-    }),
-  })
-)
+const client = new ApolloClient({
+  networkInterface: createNetworkInterface({
+    uri: `${process.env.CCWANG_API}/graphql`,
+  }),
+})
 
 function App() {
   return (
     <MuiThemeProvider>
-      <ApolloProvider client={createClient()}>
+      <ApolloProvider client={client}>
         <Provider store={store}>
           <div>
             <Helmet
@@ -51,10 +48,6 @@ function App() {
       </ApolloProvider>
     </MuiThemeProvider>
   )
-}
-
-App.propTypes = {
-  store: React.PropTypes.object.isRequired, // eslint-disable-line
 }
 
 export default App

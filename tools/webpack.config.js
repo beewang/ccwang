@@ -23,7 +23,7 @@ const config = {
   // Options affecting the output of the compilation
   output: {
     path: path.resolve(__dirname, '../public/dist'),
-    publicPath: isDebug ? `http://localhost:${process.env.PORT || 8080}/dist/` : '/dist/',
+    publicPath: isDebug ? `http://localhost:${process.env.PORT || 3030}/dist/` : '/dist/',
     filename: isDebug ? '[name].js?[hash]' : '[name].[hash].js',
     chunkFilename: isDebug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
     sourcePrefix: '  ',
@@ -87,15 +87,6 @@ const config = {
           },
           {
             loader: 'css-loader',
-            options: {
-              sourceMap: isDebug,
-              importLoaders: true,
-              // CSS Modules https://github.com/css-modules/css-modules
-              modules: true,
-              localIdentName: isDebug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
-              // CSS Nano http://cssnano.co/options/
-              minimize: !isDebug,
-            },
           },
           {
             loader: 'postcss-loader',

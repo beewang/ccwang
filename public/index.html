@@ -10,9 +10,29 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbqzL9_0YYg6RmtDj5Ys6okpTxtSxwtkU&libraries=places"></script>
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src='/skrollr.min.js'></script>
+    <script src="/skrollr.menu.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const s = skrollr.init({
+          smoothScrolling: false,
+          mobileDeceleration: 0.004,
+          forceHeight: false,
+        })
+        skrollr.menu.init(s, {
+          animate: true,
+          easing: 'sqrt',
+          scale: 2,
+          duration: function(currentTop, targetTop) {
+            return 800;
+          }
+        })
+      });
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script src="/dist/main.js?ff1a15891bf70d4c40a7"></script>
+    <script src="/dist/main.js?3ca5cd341478bf689c83"></script>
   </body>
 </html>
