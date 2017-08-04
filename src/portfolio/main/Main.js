@@ -2,9 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import Header from './Header'
 import Home from './Home'
-import About from './About'
+import Project from './Project'
+import NavBar from '../../components/NavBar'
 
 class Main extends React.Component {
   state = {
@@ -13,10 +13,10 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <NavBar />
         <div id="container">
           <Home />
-          <About />
+          <Project />
         </div>
       </div>
     )

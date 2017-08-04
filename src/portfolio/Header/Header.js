@@ -18,12 +18,11 @@ export class Header extends Component {
           data-150="padding: 0 0;"
         >
           <li><a href="#home" data-anchor-target="#home" data-bottom-top="@class:inactive" data-50-top="@class:active" data-50-top-bottom="@class:inactive">首頁</a></li>
-          <li><a href="#about" data-anchor-target="#about" data-bottom-top="@class:inactive" data-50-top="@class:active" data-50-top-bottom="@class:inactive">關於</a></li>
+          <li><a href="#project" data-anchor-target="#project" data-bottom-top="@class:inactive" data-50-top="@class:active" data-50-top-bottom="@class:inactive">關於</a></li>
         </ul>
       </header>
     )
   }
 }
-
 
 export default Header

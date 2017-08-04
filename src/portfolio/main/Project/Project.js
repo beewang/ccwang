@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export class About extends Component {
+export class Project extends Component {
   constructor(props) {
     super(props)
     this.state = { isMounted: false }
@@ -8,7 +8,7 @@ export class About extends Component {
 
   render() {
     return (
-      <section id="about">
+      <section id="project">
         <div
           className="background picture-candle"
           data-center="background-position: 50% 0px;"
@@ -67,4 +67,4 @@ export class About extends Component {
 }
 
 
-export default About
+export default Project

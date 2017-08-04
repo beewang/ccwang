@@ -5,6 +5,7 @@ import { Route } from 'react-router-dom'
 // import NavBar from '../components/NavBar'
 import Board from './board'
 import Main from './main'
+import Header from './Header'
 
 const styles = {
   root: { },
@@ -22,5 +23,6 @@ class Portfolio extends React.Component {
     )
   }
 }
+// <Header />
 
 export default Radium(Portfolio)

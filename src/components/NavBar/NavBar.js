@@ -28,6 +28,7 @@ const NavBar = () => (
       </div>
       <div style={styles.column}>
         <div>Welcome</div>
+        <a href="#project">Project</a>
       </div>
     </div>
   </div>
